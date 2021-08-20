@@ -4,7 +4,7 @@
 go get github.com/yaoliu/go-common@v0.1-beta
 ```
 
-## rest 主要抄袭复制于client-go rest实现
+## rest 主要借鉴/抄袭/复制于client-go rest实现
 
 ```bazaar
 import (
