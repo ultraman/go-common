@@ -1,7 +1,7 @@
 # go-common
 
 ```bazaar
-go get github.com/yaoliu/go-common@v0.2
+go get github.com/yaoliu/go-common@v0.0.1
 ```
 
 ## rest 主要借鉴/抄袭/复制于client-go rest实现
