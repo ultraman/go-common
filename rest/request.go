@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"live-works/pkg/codec"
-	"live-works/pkg/logger"
 	"net/http"
 	"net/url"
 	"path"
@@ -29,7 +27,7 @@ type Request struct {
 	body  io.Reader
 	retry WithRetry
 
-	coder codec.Marshaler
+	coder Marshaler
 }
 
 // Verb 请求类型
@@ -211,8 +209,7 @@ func (r *Request) newHTTPRequest(ctx context.Context) (*http.Request, error) {
 func (r *Request) request(ctx context.Context, fn func(*http.Request, *http.Response)) error {
 	start := time.Now()
 	defer func() {
-		latency := time.Since(start)
-		logger.Infof("latency: %d", latency)
+		_ = time.Since(start)
 	}()
 	if r.err != nil {
 		return r.err

@@ -2,11 +2,10 @@ package rest
 
 import (
 	"fmt"
-	"live-works/pkg/codec"
 )
 
 type IResult interface {
-	GetCodec() codec.Marshaler
+	GetCodec() Marshaler
 	Raw() ([]byte, error)
 	Into(obj interface{}) error
 	StatusCode() int
@@ -18,10 +17,10 @@ type Result struct {
 	contentType string
 	err         error
 	statusCode  int
-	codecer     codec.Marshaler
+	codecer     Marshaler
 }
 
-func (r *Result) GetCodec() codec.Marshaler {
+func (r *Result) GetCodec() Marshaler {
 	return r.codecer
 }
 
@@ -43,7 +42,6 @@ func (r Result) Into(obj interface{}) error {
 		r.err = err
 		return err
 	}
-	fmt.Println(string(r.body))
 	err := r.codecer.Unmarshal(r.body, obj)
 	if err != nil {
 		r.err = err
