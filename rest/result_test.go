@@ -6,7 +6,7 @@ import (
 
 func TestResult_Raw(t *testing.T) {
 	result := &Result{
-		body:        []byte(`{"name":"yao"}`),
+		body:        []byte(`{"name":"hello"}`),
 		statusCode:  200,
 		err:         nil,
 		contentType: DefaultContentType,

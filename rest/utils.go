@@ -1,6 +1,10 @@
 package rest
 
-import "net/http"
+import (
+	"crypto/md5"
+	"encoding/hex"
+	"net/http"
+)
 
 func CloneRequest(req *http.Request) *http.Request {
 	r := new(http.Request)
@@ -22,4 +26,10 @@ func CloneHeader(in http.Header) http.Header {
 		out[key] = newValues
 	}
 	return out
+}
+
+func md5Util(str string) string {
+	h := md5.New()
+	h.Write([]byte(str))
+	return hex.EncodeToString(h.Sum(nil))
 }

@@ -22,7 +22,7 @@ type transportPool struct {
 	pool map[transportCacheKey]*http.Transport
 }
 
-func (t transportPool) Get(config *TransportConfig) *http.Transport {
+func (t *transportPool) Get(config *TransportConfig) *http.Transport {
 	return nil
 }
 
