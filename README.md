@@ -4,7 +4,8 @@
 go get github.com/yaoliu/go-common@v0.0.2
 ```
 
-## rest 主要借鉴/抄袭/复制于client-go rest实现
+## restclient
+主要借鉴/抄袭/复制于client-go rest实现
 
 ```go
 package main
