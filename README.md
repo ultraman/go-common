@@ -1,18 +1,20 @@
 # go-common
 
-```bazaar
+```bash
 go get github.com/yaoliu/go-common@v0.0.1
 ```
 
 ## rest 主要借鉴/抄袭/复制于client-go rest实现
 
-```bazaar
+```go
+package main
+
 import (
-    "github.com/yaoliu/go-common/rest"
+	"github.com/yaoliu/go-common/rest"
 )
 
-func main(){
-    config := &rest.Config{
+func main() {
+	config := &rest.Config{
 		Host:      "https://localhost",
 		UserAgent: "go-user-agent",
 		ContentConfig: rest.ContentConfig{
@@ -21,11 +23,33 @@ func main(){
 			Timeout:     10,
 		},
 	}
-	
-    client, err := rest.NewRESTClientFor(config)
-    if err != nil {
-        return nil
-    }
-    client.Get().Path("/api/v1/user/info").Timeout(10).Do(ctx).Raw()
+
+	client, err := rest.NewRESTClientFor(config)
+	if err != nil {
+		return nil
+	}
+	client.Get().Path("/api/v1/user/info").Timeout(10).Do(ctx).Raw()
+}
+```
+
+logger
+
+```go
+
+package main
+
+import (
+	"github.com/yaoliu/go-common/logger"
+	"github.com/yaoliu/go-common/logger/zerolog"
+	"time"
+)
+
+func main() {
+	logger.DefaultLogger = zerolog.NewLogger(
+		logger.WithLevel(logger.InfoLevel),
+		logger.WithOutputer(logger.NewOutputer("hello", "")),
+		logger.WithCallerSkipCount(4),
+		zerolog.WithTimeFormat(time.RFC3339))
+	logger.Info("logger init success")
 }
 ```
