@@ -304,6 +304,7 @@ func NewRequest(c *Client) *Request {
 	case len(c.Config.AcceptContentTypes) > 0:
 		r.SetHeader("Accept", c.Config.AcceptContentTypes+", */*")
 	case len(c.Config.ContentType) > 0:
+		r.SetHeader("Content-Type", c.Config.ContentType)
 		r.SetHeader("Accept", c.Config.ContentType+", */*")
 	}
 	return r
