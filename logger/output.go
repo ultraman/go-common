@@ -70,9 +70,9 @@ func (f *fileOutput) Write(p []byte) (n int, err error) {
 	if ff != nil {
 		f.lock.Lock()
 		if runtime.GOOS == "windows" {
-			n, err = f.Write([]byte("\r\n"))
+			n, err = ff.Write([]byte("\r\n"))
 		}
-		n, err = f.Write(p)
+		n, err = ff.Write(p)
 		f.lock.Unlock()
 		return n, err
 	}
