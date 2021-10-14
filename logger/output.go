@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -70,6 +71,9 @@ func (f *fileOutput) Write(p []byte) (n int, err error) {
 		f.lock.Lock()
 		defer f.lock.Unlock()
 		n, err := ff.Write(p)
+		if runtime.GOOS == "windows" {
+			n, err = f.Write([]byte("\r\n"))
+		}
 		return n, err
 	}
 	return 0, err
