@@ -69,11 +69,11 @@ func (f *fileOutput) Write(p []byte) (n int, err error) {
 	ff := (*os.File)(lfile)
 	if ff != nil {
 		f.lock.Lock()
-		defer f.lock.Unlock()
-		n, err := ff.Write(p)
 		if runtime.GOOS == "windows" {
 			n, err = f.Write([]byte("\r\n"))
 		}
+		n, err = f.Write(p)
+		f.lock.Unlock()
 		return n, err
 	}
 	return 0, err
