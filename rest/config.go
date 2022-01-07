@@ -13,7 +13,7 @@ type Config struct {
 	Path string
 
 	Username string
-	Passowrd string
+	Password string
 
 	BearerToken string
 
@@ -45,7 +45,7 @@ type ContentConfig struct {
 func (c *Config) TransportConfig() (*TransportConfig, error) {
 	conf := &TransportConfig{
 		Username:      c.Username,
-		Passowrd:      c.Passowrd,
+		Password:      c.Password,
 		UserAgent:     c.UserAgent,
 		Transport:     c.Transport,
 		WrapTransport: c.WrapTransport,

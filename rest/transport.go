@@ -10,7 +10,7 @@ import (
 
 type TransportConfig struct {
 	Username string
-	Passowrd string
+	Password string
 
 	UserAgent string
 
@@ -81,7 +81,7 @@ func HTTPWrappersForConfig(config *TransportConfig, rt http.RoundTripper) (http.
 	}
 	switch {
 	case config.HasBasicAuth():
-		rt = NewBasicAuthRoundTripper(config.Username, config.Passowrd, rt)
+		rt = NewBasicAuthRoundTripper(config.Username, config.Password, rt)
 	}
 
 	return rt, nil
