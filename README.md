@@ -1,7 +1,7 @@
 # go-common
 
 ```bash
-go get github.com/yaoliu/go-common@v0.0.2
+go get github.com/ultraman/go-common@v0.0.7
 ```
 
 ## restclient
@@ -11,7 +11,7 @@ go get github.com/yaoliu/go-common@v0.0.2
 package main
 
 import (
-	"github.com/yaoliu/go-common/rest"
+	"github.com/ultraman/go-common/rest"
 )
 
 func main() {
@@ -40,8 +40,8 @@ logger
 package main
 
 import (
-	"github.com/yaoliu/go-common/logger"
-	"github.com/yaoliu/go-common/logger/zerolog"
+	"github.com/ultraman/go-common/logger"
+	"github.com/ultraman/go-common/logger/zerolog"
 	"time"
 )
 
