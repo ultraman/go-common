@@ -49,7 +49,7 @@ func TestReflect(t *testing.T) {
 		fmt.Println(sv)
 		switch sv.Kind() {
 		case reflect.String:
-			sv.SetString("yao")
+			sv.SetString("man")
 		}
 	}
 	fmt.Println(user)
@@ -70,7 +70,7 @@ func TestParameterCodec_DecodeParameters(t *testing.T) {
 	user := &User{}
 	codec := parameterCodec{}
 	values := url.Values{}
-	values.Set("name", "yao")
+	values.Set("name", "man")
 	values.Set("age", "18")
 	err := codec.DecodeParameters(values, user)
 	t.Log(err)

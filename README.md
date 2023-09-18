@@ -1,7 +1,7 @@
 # go-common
 
 ```bash
-go get github.com/ultraman/go-common@v0.0.7
+go get github.com/ultraman/go-common@v0.1.1
 ```
 
 ## restclient

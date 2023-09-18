@@ -19,7 +19,7 @@ func TestClient_Post(t *testing.T) {
 	ctx := context.Background()
 	err = client.Post().
 		Path("/user/api/v1/info").
-		Param("user", "yao").
+		Param("user", "man").
 		Param("age", "18").
 		Do(ctx).
 		Into(&resp)

@@ -1,6 +1,6 @@
 package zerolog
 
-import "github.com/yaoliu/go-common/logger"
+import "github.com/ultraman/go-common/logger"
 
 type Options struct {
 	logger.Options

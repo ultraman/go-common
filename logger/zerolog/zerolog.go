@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/rs/zerolog"
 	zlog "github.com/rs/zerolog/log"
-	"github.com/yaoliu/go-common/logger"
+	"github.com/ultraman/go-common/logger"
 	"os"
 	"time"
 )
