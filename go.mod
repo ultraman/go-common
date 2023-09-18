@@ -1,4 +1,4 @@
-module github.com/yaoyaoio/go-common
+module github.com/ultraman/go-common
 
 go 1.16
 
